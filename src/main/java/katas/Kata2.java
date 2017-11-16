@@ -22,9 +22,6 @@ public class Kata2 {
         		.filter(movie ->
         			movie.getRating().equals(5.0)
         		)
-        		.map(movie -> {
-        			int teste = movie.getId();
-        			return teste;
-        		}).collect(Collectors.toList());
+        		.map(Movie::getId).collect(Collectors.toList());
     }
 }
