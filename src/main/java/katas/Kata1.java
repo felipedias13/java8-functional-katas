@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.google.common.collect.ImmutableMap;
+
 /*
     Goal: use map() to project an array of videos into an array of {id, title}-pairs
     DataSource: DataUtil.getMovies()
@@ -19,9 +21,7 @@ public class Kata1 {
 
         return movies.stream()
         		.map(movie -> {
-	        		Map<String, String> currentMovie = new HashMap<String, String>();
-	        		currentMovie.put(movie.getId().toString(), movie.getTitle());
-	        		return currentMovie;
+        			return ImmutableMap.of("id", movie.getId(), "title", movie.getTitle());
         		}).collect(Collectors.toList());
     }
 }
